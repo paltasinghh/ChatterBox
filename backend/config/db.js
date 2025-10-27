@@ -7,10 +7,7 @@ const connectDB = async () => {
       throw new Error("VITE_MONGO_URI is undefined. Check .env file");
     }
 
-    const conn = await mongoose.connect(process.env.VITE_MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(process.env.VITE_MONGO_URI);
 
     console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline);
   } catch (error) {
